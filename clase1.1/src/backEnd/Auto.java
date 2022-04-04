@@ -113,16 +113,16 @@ public class Auto {
 
     }
 
-    public static void informarAuto(Auto auto) {
+    public  void informarAuto(Auto auto) {
         System.out.println("MARCA vehiculo: " + auto.getMarca());
         System.out.println("MODELO: " + auto.getModelo());
         System.out.println("AÑO: " + auto.getAño());
         System.out.println("KILOMETROS REALIZADOS: " + auto.getKmRealizados());
         System.out.println("CANTIDAD DE SERVICE REALIZADOS: " + auto.getCantServiceHechos());
-        System.out.println("MARCA DE ULTIMO ACEITE CAMBIADO: " + auto.getMarca());
+        System.out.println("MARCA DE ULTIMO ACEITE CAMBIADO: " + auto.getMarcaAceite());
     }
 
-    public boolean verifPapeles(int papeles) {
+    /*public boolean verifPapeles(int papeles) {
 
         if (papeles == 1) {
             return true;
@@ -164,8 +164,9 @@ public class Auto {
 
             kmPromedio = kmTotal / 4;
             System.out.println("Usted tiene un promedio de " + kmPromedio + " km. realizados en sus ruedas.");
-        }
+        }/*/
 
     }
-}
+
+
 

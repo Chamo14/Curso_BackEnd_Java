@@ -31,6 +31,7 @@ public class Main {
         System.out.println("3 Verificar Ruedas");
         System.out.println("4 Verificar Papeles");
         System.out.println("5 Realizar Service");
+        System.out.println("6 Informar detalles");
         opcion = teclado.nextInt();
 
         //Menu de opciones
@@ -50,6 +51,10 @@ public class Main {
                 break;
             case 5:
                 auto.realizarService(auto.getCantServiceHechos(),auto.getMarcaAceite());
+                auto.informarAuto(auto);
+                break;
+            case 6:
+                auto.informarAuto(auto);
                 break;
             default:
                 System.out.println("Opcion incorrecta");
@@ -62,7 +67,7 @@ public class Main {
 
     public static  void verificarAuto(Auto auto){
         boolean verificado=auto.verificarService(auto.getKmRealizados(), auto.getCantServiceHechos());
-        if (!verificado){System.out.println("Su auto tiene todos su services correspondientes!");}
+        if (verificado){System.out.println("Su auto tiene todos su services correspondientes!");}
             else{System.out.println("Su auto le falta realizar un service!");}
     }
 }
