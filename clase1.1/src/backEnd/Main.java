@@ -51,7 +51,7 @@ public class Main {
                 //ejercicio4();
                 break;
             case 5:
-                auto.realizarService(auto.getCantServiceHechos(),auto.getMarcaAceite());
+                auto.realizarService(auto);
                 auto.informarAuto(auto);
                 break;
             case 6:

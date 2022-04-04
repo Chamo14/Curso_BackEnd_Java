@@ -102,13 +102,15 @@ public class Auto {
         return service;
     }
 
-    public void realizarService(int cant, String marca) {
+    public void realizarService(Auto auto) {
         Scanner teclado = new Scanner(System.in);
         String marcaAux;
         System.out.println("Ingrese la marca de aceite a cambiar");
         marcaAux = teclado.nextLine();
-        cant = cant + 1;
-        marca = marcaAux;
+        int cant= auto.getCantServiceHechos();
+        auto.setMarcaAceite(marcaAux);
+        auto.setCantServiceHechos(cant++);
+        ;
         System.out.println("El service se realizo correctamente!");
 
     }
