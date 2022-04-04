@@ -112,8 +112,8 @@ public class Main {
         nota3=teclado.nextInt();
         promedio=(nota1+nota2+nota3)/3;
         if (promedio <10){System.out.println("Usted esta desaprobado");}
-        else if ((promedio>=10)&&(promedio<=15)){System.out.println("Usted esta aprobado");}
-        else if((promedio>15)){System.out.println("Usted esta eximido");}
+        else if ((promedio>=10)&&(promedio<15)){System.out.println("Usted esta aprobado");}
+        else if((promedio>=15)){System.out.println("Usted esta eximido");}
         teclado.close();
     }
     public static void ejercicio4(){
