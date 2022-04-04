@@ -14,14 +14,15 @@ public class Main {
         marca = teclado.nextLine();
         System.out.println("Ingrese Año del vehiculo");
         año = teclado.nextLine();
+        System.out.println("Ingrese Marca de ultimo aceite en el service");
+        marcaAceite = teclado.nextLine();
         System.out.println("Ingrese cantidad de kilometros del vehiculo");
         km = teclado.nextInt();
         System.out.println("Ingrese cantidad de ruedas del vehiculo");
         ruedas = teclado.nextInt();
         System.out.println("Ingrese cantidad de services realizados del vehiculo");
         service = teclado.nextInt();
-        System.out.println("Ingrese Marca de ultimo aceite en el service");
-        marcaAceite = teclado.nextLine();
+
         Auto auto = new Auto(marca, modelo, año, ruedas, km, service, marcaAceite);
 
         int opcion = 0;
