@@ -6,42 +6,47 @@ public class Main {
     public static void main(String[] args) {
         Scanner teclado= new Scanner(System.in);
         int opcion;
-        System.out.println("Elija un ejercicio a realizar");
+            impresion();
+            opcion = teclado.nextInt();
+            //Menu de opciones
+
+            switch (opcion) {
+                case 1:
+                    ejercicio1();
+                    break;
+                case 2:
+                    ejercicio2();
+                    break;
+                case 3:
+                    ejercicio3();
+                    break;
+                case 4:
+                    ejercicio4();
+                    break;
+                case 5:
+                    ejercicio5();
+                    break;
+                case 6:
+                    ejercicio6();
+                    break;
+                default:
+                    System.out.println("Opcion incorrecta");
+                    break;
+            }
+        teclado.close();
+
+
+
+    }
+    //Simplificacion de las impresiones de pantalla
+    public static void impresion(){
         System.out.println("EJERCICIO 1 ");
         System.out.println("EJERCICIO 2");
         System.out.println("EJERCICIO 3");
         System.out.println("EJERCICIO 4");
         System.out.println("EJERCICIO 5");
         System.out.println("EJERCICIO 6");
-        opcion=teclado.nextInt();
-        //Menu de opciones
-        switch (opcion) {
-            case 1:
-                ejercicio1();
-                break;
-            case 2:
-                ejercicio2();
-                break;
-            case 3:
-                ejercicio3();
-                break;
-            case 4:
-                ejercicio4();
-                break;
-            case 5:
-                ejercicio5();
-                break;
-            case 6:
-                ejercicio6();
-                break;
-            default:
-                System.out.println("Opcion incorrecta");
-                break;
-        }
-        teclado.close();
-
-
-
+        System.out.println("Elija un ejercicio a realizar");
     }
     public static void ejercicio1(){
         float altura,imc;
@@ -118,7 +123,7 @@ public class Main {
         for (i=0;i<3;i++){
         System.out.println("Ingrese un valor : ");
         valor=teclado.nextInt();
-        if(valor>=mayor){
+        if(valor>=mayor){//comparo y guardo el de mayor valor (en caso de ser igual sera el mismo numero)
             mayor=valor;}
         }
         System.out.println("El mayor de los numeros es : "+mayor);
@@ -131,7 +136,7 @@ public class Main {
         for (i=0;i<3;i++){
             System.out.println("Ingrese un valor : ");
             valor=teclado.nextInt();
-            if(valor<=menor){
+            if(valor<=menor){//comparo y guardo el de menor valor (en caso de ser igual sera el mismo numero)
                 menor=valor;}
         }
         System.out.println("El menor de los numeros es : "+menor);
@@ -141,7 +146,7 @@ public class Main {
         int numero, aux, inverso = 0, cifra;
         Scanner teclado = new Scanner(System.in);
         do{//Se carga el numero y se repitira en caso de no ingresar un numero mayor a 10
-            System.out.print("Introduce un número >= 10: ");
+            System.out.print("Introduce un numero >= 10: ");
             numero = teclado.nextInt();
         }while(numero< 10);
         aux=numero;
