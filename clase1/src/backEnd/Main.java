@@ -5,6 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner teclado= new Scanner(System.in);
+
         int opcion;
             impresion();
             opcion = teclado.nextInt();
@@ -29,12 +30,17 @@ public class Main {
                 case 6:
                     ejercicio6();
                     break;
+                case 7:
+                    ejercicioTriangulo();
+                    break;
+                case 8:
+                    ejercicioPrimo();
+                    break;
                 default:
                     System.out.println("Opcion incorrecta");
                     break;
             }
         teclado.close();
-
 
 
     }
@@ -46,6 +52,9 @@ public class Main {
         System.out.println("EJERCICIO 4");
         System.out.println("EJERCICIO 5");
         System.out.println("EJERCICIO 6");
+        System.out.println("--------LECTURA BACK END 14hs a 15:30--------");
+        System.out.println("EJERCICIO 7 TRIANGULO");
+        System.out.println("EJERCICIO 8 PRIMO");
         System.out.println("Elija un ejercicio a realizar");
     }
     public static void ejercicio1(){
@@ -163,6 +172,49 @@ public class Main {
         }
         teclado.close();
     }
+    public static void ejercicioTriangulo(){
+        Scanner teclado =new Scanner(System.in);
+        Triangulo triangulito = new Triangulo();
+        int lado1,lado2,lado3 =0;
+        System.out.println("Ingrese valor de lado 1");
+        lado1=teclado.nextInt();
+        System.out.println("Ingrese valor de lado 2");
+        lado2=teclado.nextInt();
+        System.out.println("Ingrese valor de lado 3");
+        lado3=teclado.nextInt();
+        triangulito.setLado1(lado1);
+        triangulito.setLado2(lado2);
+        triangulito.setLado3(lado3);
+        triangulito.quienSoy(lado1,lado2,lado3);
+        teclado.close();
+    }
+    public static void ejercicioPrimo() {
+        Scanner teclado = new Scanner(System.in);
+        int number;
+        do {
+            System.out.println("Ingrese numero entre 1 y 14");
+            number = teclado.nextInt();
+        }while((number>14)||(number<1));
+        boolean primo = esPrimo(number);
+        if (primo) {
+            System.out.println("El numero " + number + " es Primo");
+        } else {
+            System.out.println("El numero " + number + " no es Primo");
+        }
 
+        teclado.close();
+
+    }
+
+    public static boolean esPrimo(int numero) {
+        int cont = 2;
+        boolean primo;
+        for(primo = true; primo && cont != numero; ++cont) {
+            if (numero % cont == 0) {
+                primo = false;
+            }
+        }
+        return primo;
+    }
 
 }
