@@ -118,7 +118,7 @@ public class Main {
         for (i=0;i<3;i++){
         System.out.println("Ingrese un valor : ");
         valor=teclado.nextInt();
-        if(valor>mayor){
+        if(valor>=mayor){
             mayor=valor;}
         }
         System.out.println("El mayor de los numeros es : "+mayor);
@@ -131,7 +131,7 @@ public class Main {
         for (i=0;i<3;i++){
             System.out.println("Ingrese un valor : ");
             valor=teclado.nextInt();
-            if(valor<menor){
+            if(valor<=menor){
                 menor=valor;}
         }
         System.out.println("El menor de los numeros es : "+menor);
