@@ -59,14 +59,15 @@ public class Veterinario implements IAtencion {
         System.out.println("Nombre : "+animal.getNombre());
         System.out.println("Raza : "+animal.getRaza());
         System.out.println("Edad : "+animal.getEdad());
+        System.out.println("Peso : "+animal.getPeso());
         System.out.println("Genero : "+animal.getGenero());
-        System.out.println("Sintoma : "+animal.getSintoma());
+        animal.mostrarSintomas();
         System.out.println("------------------------------");
 
     }
 
-    public void realizarChekeo(int peso,Animal animal){
-        String infPeso=controlarPeso(peso, animal.getEdad());
+    public void realizarChekeo(Animal animal){
+        String infPeso=controlarPeso(animal.getPeso(), animal.getEdad());
        boolean alimentacion=controlarAlimentacion();
        String infAlimentacion;
        if (alimentacion){infAlimentacion="Buena";}
@@ -119,26 +120,47 @@ public class Veterinario implements IAtencion {
         System.out.println("3) Curar con cirujia");
     }
 
+    public void mostrarVeterinario(Veterinario veterinario){
+        System.out.println("Nombre : "+veterinario.getNombre());
+        System.out.println("Matricula: "+veterinario.getMatricula());
+        System.out.println("Telefono : "+veterinario.getTelefono());
+    }
+    public  void ingresoDatos(Veterinario veterinario,Scanner teclado){
+        System.out.println("CARGANDO VETERINARIO--------------");
+        System.out.println("Ingrese nombre");
+        veterinario.setNombre(teclado.next());
+        System.out.println("Ingrese matricula");
+        veterinario.setMatricula(teclado.nextInt());
+        System.out.println("Ingrese telefono");
+        veterinario.setTelefono(teclado.nextInt());
+
+    }
+
     @Override
     public void alertarSintomas() {
         Scanner teclado = new Scanner(System.in);
         int op;
+        if(this.animal.getSintomas()) {
         impresionCuracion();
         op=teclado.nextInt();
-        switch (op){
-            case 1:
-                System.out.println("Se aplicara un medicamento");
-                break;
-            case 2:
-                System.out.println("Se aplicara hierbas medicinales");
-                break;
-            case 3:
-                System.out.println("Se aplicara una cirujia");
-                break;
-            default:
-                System.out.println("No se dio su tratamiento");
-                break;
+
+            switch (op) {
+                case 1:
+                    System.out.println("Se aplicara un medicamento");
+                    break;
+                case 2:
+                    System.out.println("Se aplicara hierbas medicinales");
+                    break;
+                case 3:
+                    System.out.println("Se aplicara una cirujia");
+                    break;
+                default:
+                    System.out.println("No se dio su tratamiento");
+                    break;
+            }
         }
+        else
+        {System.out.println("No se puede realizar ninguna curacion ya que su animal no presenta sintomas! y/o no existe el animal");}
         }
     }
 
