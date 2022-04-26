@@ -28,7 +28,7 @@ public class UserController {
 	private UserService userService;
 	
 	//Create a new user POST
-	@PostMapping
+	@PostMapping("/insertUser")
 	public ResponseEntity<?> create(@RequestBody User user){
 		return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
 	}
@@ -37,7 +37,7 @@ public class UserController {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> read(@PathVariable Long id){
 		Optional<User> oUser = userService.findById(id);
-		
+		//VALIDACIONES SI EXISTE
 		if(!oUser.isPresent()) {
 			return ResponseEntity.notFound().build();//DEVUELVE 404
 		}
@@ -70,7 +70,7 @@ public class UserController {
 	}
 	
 	//Read all User Leer todos los usuarios
-	@GetMapping
+	@GetMapping("/listUsers")
 	public List<User> readAll(){
 		List<User> users = StreamSupport//TRANSFORMA ITERABLE EN LISTA
 				.stream(userService.findAll().spliterator(), false)//RECIBE EL ITERABLE
