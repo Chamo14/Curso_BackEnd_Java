@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: apiWebService
+  description: api que se aplica el CRUD a los usuarios de la base de datos
+servers : 
+# Added by API Auto Mocking Plugin
+- description: SwaggerHub API Auto Mocking
+  url: https://virtserver.swaggerhub.com/Chamo14/apiWebService/1.0
+- url : "http://localhost:8080"
+tags:
+- name: users
+  description: Este endpoint se encarga de gestionar toda la base de datos de los usuarios
+  
+  
+  
+paths:
+  /api/users:
+    get:
+      tags:
+        - devolverUsuario
+      summary : 'Devuelve un usuario'
+      description : Este metodo se encarga de devolver un usuario
+      responses:
+        200:
+          description: (OK) Servicio realizado de forma exitosa!
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/users'        
+    
+        500:
+          $ref: '#/components/responses/ServerError'
+          
+    post:
+      tags: 
+        - crearUsuario
+      summary: 'Crea un nuevousuario'  
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+      responses:
+        200:
+          description: (OK) Servicio realizado de forma exitosa!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'        
+        500:
+          $ref: '#/components/responses/ServerError'
+        422:
+          $ref: '#/components/responses/BadRequest'
+          
+    put:
+      tags: 
+        - updateUser
+      summary: 'edita un usuario'  
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+      responses:
+        200:
+          description: (OK) Servicio realizado de forma exitosa!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'        
+
+        500:
+          $ref: '#/components/responses/ServerError'
+        422:
+          $ref: '#/components/responses/BadRequest'
+    
+    
+  /api/users/{id}:
+    get:
+      description: Obtener un usuario por ID
+      summary : 'Devuelve un usuario por id'
+      parameters:
+        - in: path
+          name : id
+          required : true
+          description : id
+          schema:
+            type: string
+            example : 01
+      responses:
+        200:
+          description: (OK) Servicio realizado de forma exitosa!
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/users'        
+        500:
+          $ref: '#/components/responses/ServerError'
+        422:
+          $ref: '#/components/responses/BadRequest'  
+
+    delete:
+      description: Eliminar un usuario por id
+      summary : 'Elimina un usuario por id'
+      parameters:
+        - in: path
+          name : id
+          required : true
+          description : id
+          schema:
+            type: integer
+            example : 01
+      responses:
+        200:
+          description: (OK) Servicio realizado de forma exitosa!
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/users'        
+        500:
+          $ref: '#/components/responses/ServerError'
+        422:
+          $ref: '#/components/responses/BadRequest' 
+      
+  /api/users/listUsers:         
+    get:
+      description: Obtener todos los usuarios
+      summary : 'Devuelve todos los usuarios '
+      responses:
+        200:
+          description: (OK) Servicio realizado de forma exitosa!
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/users'        
+        500:
+          $ref: '#/components/responses/ServerError'
+        422:
+          $ref: '#/components/responses/BadRequest'
+  
+
+
+components:
+  responses:
+    Unauthorized:
+      description: (Unauthorized) no tiene autorizacion al servicio
+    NotFound:
+      description : (NotFound) no se encontraron datos!
+    BadRequest:
+      description : (BadRequest) los datos enviados no son validos!
+    ServerError:
+      description : (ServerError) error en el servidor
+  
+
+    
+  schemas:
+    users:
+      type: object
+
+      properties:
+        id:
+          type : integer
+          description : id del usuario
+        name:
+          type : string
+          description : nombre del usuario
+        surname:
+          type : string
+          description : apellido del usuario
+        email:
+          type : string
+          description : email del usuario
+        enabled:
+          type : boolean
+          description : habilitacion del usuario
