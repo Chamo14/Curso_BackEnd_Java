@@ -25,6 +25,7 @@ public class Clientcontroller {
 	public String clientForm(Model model) {
 		model.addAttribute("clientForm",new Client());
 		model.addAttribute("clientList",cService.getAllClients());
+		model.addAttribute("listTab","active");
 		return "client-view";
 	}
 	
@@ -32,6 +33,7 @@ public class Clientcontroller {
 	@GetMapping("/create")
 	public String showClient(Model model) {
 		model.addAttribute("clientForm",new Client());
+		model.addAttribute("listForm","active");
 		return "redirect:clientForm";
 	}
 	@PostMapping("/create")
@@ -43,7 +45,9 @@ public class Clientcontroller {
 	@GetMapping("/editClient/{id}")
 	public String editClient(@PathVariable(name ="id") long id, Model model) {
 		Client client= cService.getOne(id);
-        model.addAttribute("clientForm", client);
+		model.addAttribute("clientForm",client);
+		model.addAttribute("clientList",cService.getAllClients());
+		model.addAttribute("formTab","active");
         return "client-view";
     }
 	
