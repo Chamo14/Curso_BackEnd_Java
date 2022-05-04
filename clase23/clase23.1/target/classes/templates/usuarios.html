@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>User Information and Form</title>
+	
+</head>
+	
+
+<body>
+<table id="userList" class="table table-bordered table-hover table-striped">
+								<thead class="thead-light">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Name</th>
+									<th scope="col">Surname</th>
+									<th scope="col">E-mail</th>
+									<th scope="col">Enabled</th>
+									
+								</tr>
+								</thead>
+								<tbody>
+								<tr th:each ="user : ${userList}">
+									<th scope="row" th:text ="${user.id}"></th>
+									<td th:text ="${user.name}"></td>
+									<td th:text ="${user.surname}"></td>
+									<td th:text ="${user.email}"></td>
+									<td th:text ="${user.enabled}"></td>
+									
+								</tr>
+								</tbody>
+							</table>
+</body>
+</html>
