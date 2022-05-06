@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/crearPersona}" th:object="${persona}" method="POST">
+		<input type="hidden" th:field="*{id}"/>
+	
+		<div>
+			<label for="name">Nombre</label>
+			<input name="name" id="name" th:field="*{nombre}"/>
+		</div>
+		<div>
+			<label for="surname">Apellido</label>
+			<input name="surname" id="surname" th:field="*{apellido}"/>
+		</div>
+		<div>
+			<label for="dni">Dni</label>
+			<input name="dni" id="dni" th:field="*{dni}"/>
+		</div>
+		<div>
+			<label for="telephone">Telephone</label>
+			<input name="telephone" id="telephone" th:field="*{dni}"/>
+		</div>
+		<div>
+			<input type="submit" value="Enviar" />
+		</div>
+	</form>
+</body>
+</html>
